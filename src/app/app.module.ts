@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     HomeComponent,
+    ColorTubeMainComponent,
+    ColorTubeComponent
   ],
   imports: [
     BrowserModule,
