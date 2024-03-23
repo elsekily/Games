@@ -1,0 +1,42 @@
+
+.tube-container {
+    width: 50px;
+    margin: 50px 10px 10px 10px;
+    background-color: transparent;
+}
+.top {
+    height: 20px;
+    background-color: white   ;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.tube3{
+    height: 40px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+} 
+.tube2{
+    height: 50px;
+    border-left: 1px solid black;
+    border-right: 1px solid #000000;
+} 
+.tube1{
+    height: 50px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+} 
+
+.tube0{
+    height: 50px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+
+}
+.tube0,.tube1,.tube2,.tube3{
+    transition: background-color 0.7s ease;
+}
