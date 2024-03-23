@@ -1,0 +1,54 @@
+
+ .navbar {
+     margin-bottom: 0;
+     border-radius: 0;
+     background-color: #1976d2;
+    
+ }
+
+ .navbar-brand{
+    color: #fff;
+ }
+/*
+ .content {
+   
+    height: 100%;
+ }
+*/
+ .toolbar-logo {
+     height: 30px;
+     width: 24px;
+     margin: 10px;
+ }
+
+ .toolbar-logo:hover {
+     opacity: 0.8;
+ }
+
+ /* Set gray background color and 100% height 
+ .sidenav {
+     padding-top: 20px;
+     height: 100%;
+ }*/
+
+
+ /* On small screens, set height to 'auto' for sidenav and grid */
+ @media screen and (max-width: 767px) {
+     .sidenav {
+         height: auto;
+         padding: 15px;
+     }
+
+     .row.content {
+         height: auto;
+     }
+ }
+
+
+ svg#clouds {
+     position: fixed;
+     bottom: -160px;
+     left: -230px;
+     z-index: -10;
+     width: 1920px;
+ }
