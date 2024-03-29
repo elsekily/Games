@@ -7,13 +7,15 @@ import { HomeComponent } from './components/home/home.component';
 import { ColorTubeMainComponent } from './components/color-tube-main/color-tube-main.component';
 import { ColorTubeComponent } from './components/color-tube-main/color-tube/color-tube.component';
 import { FormsModule } from '@angular/forms';
+import { HomeCardComponent } from './components/home-card/home-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ColorTubeMainComponent,
-    ColorTubeComponent
+    ColorTubeComponent,
+    HomeCardComponent
   ],
   imports: [
     BrowserModule,
