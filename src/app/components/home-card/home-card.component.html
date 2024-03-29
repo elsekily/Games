@@ -1,0 +1,11 @@
+<div class="card">
+    <a [routerLink]="product.link">
+    <img class="card-img-top link"  [src]="product.imageUrl" alt="Product Image">
+    </a>
+    <div class="card-body">
+        <a [routerLink]="product.link">
+            <h5 class="card-title" [routerLink]="product.link">{{ product.name }}</h5>
+        </a>
+        <p class="card-text">{{ product.description }}</p>
+    </div>
+</div>

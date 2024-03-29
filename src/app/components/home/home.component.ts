@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-
+products = [
+    { name: 'Color Sort Solver', imageUrl: 'assets/images/colortube.png' ,link : '/color-tube', description: 'Input your game and I show you how to solve it' },
+  ];
 }
