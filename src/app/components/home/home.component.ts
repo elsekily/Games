@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
 export class HomeComponent {
 products = [
     { name: 'Color Sort Solver', imageUrl: 'assets/images/colortube.png' ,link : '/color-tube', description: 'Input your game and I show you how to solve it' },
+    { name: 'Snake', imageUrl: 'assets/images/snake.png' ,link : '/snake', description: 'Just Play Snake' },
   ];
 }
