@@ -1,8 +1,12 @@
 
 export class Tube {
-    stack: string[] = [];
+    private stack: string[] = [];
 
-    maxCount = 4;
+    private maxCount = 4;
+    
+    public GetMaxCount() {
+        return this.maxCount;
+    }
 
     public getTopLayer(): string {
         if (this.stack.length === 0)
@@ -63,6 +67,27 @@ export class Tube {
         if (this.getTopLayerCount() === this.stack.length) return false;
 
         return true;
+    }
+
+    public GetCount() : number {
+        return this.stack.length;
+    }
+
+    public RemoveOne() {
+        this.stack.pop();
+    }
+
+    public GetByIndex(index: number): string {
+        if (index < 0 || index >= this.stack.length)
+            return '';
+        
+        return this.stack[index];
+    }
+
+    public clone(): Tube {
+        let newTube = new Tube();
+        newTube.stack = [...this.stack];
+        return newTube;
     }
 
 

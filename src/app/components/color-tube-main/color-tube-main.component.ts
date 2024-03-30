@@ -1,14 +1,14 @@
-
 import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import { ColorTubeComponent } from './color-tube/color-tube.component';
 import {  ColorsEnum } from 'src/app/models/colors';
-import { Tube } from 'src/app/models/Tube';
-import { Solver } from 'src/app/models/Solver';
+import { Tube } from 'src/app/models/ColorTubes/Tube';
+import { ColorTubeSolver } from "src/app/services/ColorTubeSolver";
 
 @Component({
   selector: 'app-color-tube-main',
   templateUrl: './color-tube-main.component.html',
-  styleUrls: ['./color-tube-main.component.css']
+  styleUrls: ['./color-tube-main.component.css'],
+  providers: [ColorTubeSolver] 
 })
 export class ColorTubeMainComponent{
 
@@ -18,7 +18,11 @@ export class ColorTubeMainComponent{
   canAddTubes: boolean = true;  
   maxTubes: number = 14;
   canRemoveTubes: boolean = false;
+  canInsertColors: boolean = true;
+  solvable: boolean = false;
   
+  constructor(private solver : ColorTubeSolver ) {
+  }
   Add() {
     if (!this.canAddTubes)
       return;
@@ -30,6 +34,7 @@ export class ColorTubeMainComponent{
       this.canAddTubes = false;
     }
 
+    this.checkValid();
   }
   Remove() {
     if (!this.canRemoveTubes)
@@ -41,36 +46,50 @@ export class ColorTubeMainComponent{
     if (this.colorTubes.length == 0) {
       this.canRemoveTubes = false;
     }
+
+    this.checkValid();
+    
   }
 
   insertColor(index: number) {
-    if (index > this.colorTubes.length)
+    if (index > this.colorTubes.length || !this.canInsertColors)
       return;
 
-    if (this.selectedColor == '' && this.colorTubes[index].stack.length != 0) {
-      this.colorTubes[index].stack.pop();
+    if (this.selectedColor == '' && this.colorTubes[index].GetCount() != 0) {
+
+      this.colorTubes[index].RemoveOne();
+      this.checkValid();
       return;
     }
 
-    if (this.selectedColor == '' && this.colorTubes[index].stack.length == 0) {
+    if (this.selectedColor == '' && this.colorTubes[index].GetCount() == 0) {
+      
       return;
     }
 
     this.colorTubes[index].add(this.selectedColor, 1);
+    this.checkValid();
   }
 
   async Solve() : Promise<void>{
 
-    let solution = new Solver().Solve(this.colorTubes);
-    //let solution = [[0, 2], [1, 0], [1, 2]];
-    if (solution.length == 0)
+    let solution =  this.solver.Solve(this.colorTubes);
+
+    this.solvable = false;
+    this.canAddTubes = false;
+    this.canRemoveTubes = false;
+    this.canInsertColors = false;
+
+    if (solution.length == 0) {
+      alert('No Solution');
       return;
+    }
 
     for (let index = 0; index < solution.length; index++) {
       console.log(this.colorTubes);
         await this.move(solution[index][0], solution[index][1]);
       
-    }    
+    }
   }
 
 
@@ -129,6 +148,11 @@ export class ColorTubeMainComponent{
 
     delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  
+
+  checkValid()  {
+    this.solvable =  this.solver.IsValid(this.colorTubes);
   }
 
 

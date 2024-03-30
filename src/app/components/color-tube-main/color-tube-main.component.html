@@ -24,7 +24,7 @@
             <button class="btn btn-primary" [disabled]="!canRemoveTubes" (click)="Remove()">Remove Tube</button>
         </div>
         <div class="col-md-2 d-flex justify-content-center text-center">
-            <button class="btn btn-primary" [disabled]="!true" (click)="Solve()">Solve</button>
+            <button class="btn btn-primary" [disabled]="!solvable" (click)="Solve()">Solve</button>
         </div>
     </div>
 </div>
