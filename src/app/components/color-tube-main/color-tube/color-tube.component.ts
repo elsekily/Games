@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Tube } from 'src/app/models/Tube';
+import { Tube } from 'src/app/models/ColorTubes/Tube';
 
 @Component({
   selector: 'app-color-tube',

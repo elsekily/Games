@@ -2,8 +2,8 @@
 import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import { ColorTubeComponent } from './color-tube/color-tube.component';
 import {  ColorsEnum } from 'src/app/models/colors';
-import { Tube } from 'src/app/models/Tube';
-import { Solver } from 'src/app/models/Solver';
+import { Tube } from 'src/app/models/ColorTubes/Tube';
+import { ColorTubeSolver } from "src/app/services/ColorTubeSolver";
 
 @Component({
   selector: 'app-color-tube-main',
@@ -19,6 +19,8 @@ export class ColorTubeMainComponent{
   maxTubes: number = 14;
   canRemoveTubes: boolean = false;
   
+  constructor(private solver : ColorTubeSolver ) {
+  }
   Add() {
     if (!this.canAddTubes)
       return;
