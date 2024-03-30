@@ -4,6 +4,7 @@ import { ColorTubeMainComponent } from './components/color-tube-main/color-tube-
 import { HomeComponent } from './components/home/home.component';
 import { SnakeComponent } from './components/snake/snake.component';
 import { MazeComponent } from './components/maze/maze.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -13,7 +14,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }]
 })
 export class AppRoutingModule { }
