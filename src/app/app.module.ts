@@ -8,6 +8,7 @@ import { ColorTubeMainComponent } from './components/color-tube-main/color-tube-
 import { ColorTubeComponent } from './components/color-tube-main/color-tube/color-tube.component';
 import { FormsModule } from '@angular/forms';
 import { HomeCardComponent } from './components/home-card/home-card.component';
+import { SnakeComponent } from './components/snake/snake.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HomeCardComponent } from './components/home-card/home-card.component';
     HomeComponent,
     ColorTubeMainComponent,
     ColorTubeComponent,
-    HomeCardComponent
+    HomeCardComponent,
+    SnakeComponent
   ],
   imports: [
     BrowserModule,
