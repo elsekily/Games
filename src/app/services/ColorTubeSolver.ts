@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Tube } from "../models/ColorTubes/Tube";
 
 @Injectable({
-  providedIn: 'root' // This tells Angular to provide this service at the root level
+  providedIn: 'any' 
 })
 
 export class ColorTubeSolver {

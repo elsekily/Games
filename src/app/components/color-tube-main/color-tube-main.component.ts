@@ -7,7 +7,8 @@ import { ColorTubeSolver } from "src/app/services/ColorTubeSolver";
 @Component({
   selector: 'app-color-tube-main',
   templateUrl: './color-tube-main.component.html',
-  styleUrls: ['./color-tube-main.component.css']
+  styleUrls: ['./color-tube-main.component.css'],
+  providers: [ColorTubeSolver] 
 })
 export class ColorTubeMainComponent{
 
