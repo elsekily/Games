@@ -1,0 +1,31 @@
+<div class="container d-flex align-items-center justify-content-center">
+    <div class="row">
+        <div class="row justify-content-md-center">
+            <div class="col-auto p-0">End</div>
+            <div class="col-auto p-0">
+                <div class="grid-container">
+                    <div *ngFor="let row of grid; let i = index" class="grid-row">
+                        <div class="grid-cell" *ngFor="let cell of row; let j = index" (click)="onCellClick(i,j)"
+                            [style.background]="getBackgroundColor(cell)"
+                            [class.left-border]="j===0"
+                            [class.right-border]="j=== (row.length - 1)"
+                            [class.top-border]="i===0"
+                            [class.bottom-border]="i=== (row.length - 1)"
+                            [class.first-cell]="j === 0 && i ===0"
+                            [class.last-cell]="j === row.length - 1 && i === row.length - 1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto p-0 d-flex align-items-end">Start</div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div [ngStyle]="{'display': state == 0 || state == 1 ? 'block' : 'none'}">
+                <button type="button" [disabled]="state===1" class="btn btn-primary m-2" (click)="Solve()">Solve</button>
+            </div>
+            <div [ngStyle]="{'display': state == 2 ? 'block' : 'none'}">
+                <button type="button" class="btn btn-primary m-2" (click)="Reset()">Reset</button>
+            </div>
+        </div>
+    </div>
+</div>

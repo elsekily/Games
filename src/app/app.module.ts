@@ -9,6 +9,7 @@ import { ColorTubeComponent } from './components/color-tube-main/color-tube/colo
 import { FormsModule } from '@angular/forms';
 import { HomeCardComponent } from './components/home-card/home-card.component';
 import { SnakeComponent } from './components/snake/snake.component';
+import { MazeComponent } from './components/maze/maze.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SnakeComponent } from './components/snake/snake.component';
     ColorTubeMainComponent,
     ColorTubeComponent,
     HomeCardComponent,
-    SnakeComponent
+    SnakeComponent,
+    MazeComponent
   ],
   imports: [
     BrowserModule,
