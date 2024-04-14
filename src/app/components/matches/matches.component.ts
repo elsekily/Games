@@ -19,9 +19,25 @@ export class MatchesComponent {
   numberOfMatchesToMove: number[] = [1, 2];
   
   
+  constructor(private solver: MatchesSolver, private helper: MatchesUtitlies) {
+    this.equation = this.helper.getDefaultEquation();
+  }
 
 
   solve() { 
+    if (!this.helper.isValidEquationNumbers(this.equation))
+      alert('Not valid Numbers');
+    
+    
+    let result =  this.solver.Solve(this.equation,this.selectedNumber);
+    
+    if (result.length != 0) {
+      this.solution = result;
+    }
+    else {
+      alert('No Solution Found!');
+    }
+    this.isSolved = true;
   }
 
   change() {
