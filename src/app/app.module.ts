@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeCardComponent } from './components/home-card/home-card.component';
 import { SnakeComponent } from './components/snake/snake.component';
 import { MazeComponent } from './components/maze/maze.component';
+import { NumberComponent } from './components/matches/number/number.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { MazeComponent } from './components/maze/maze.component';
     ColorTubeComponent,
     HomeCardComponent,
     SnakeComponent,
-    MazeComponent
+    NumberComponent,
   ],
   imports: [
     BrowserModule,
