@@ -13,6 +13,7 @@ import { MazeComponent } from './components/maze/maze.component';
 import { NumberComponent } from './components/matches/number/number.component';
 import { SignComponent } from './components/matches/sign/sign.component';
 import { EqualComponent } from './components/matches/equal/equal.component';
+import { EquationComponent } from './components/matches/equation/equation.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { EqualComponent } from './components/matches/equal/equal.component';
     NumberComponent,
     SignComponent,
     EqualComponent,
+    EquationComponent
   ],
   imports: [
     BrowserModule,
