@@ -1,0 +1,18 @@
+.dash{
+    width: 100px;
+    height: auto;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.c-row{
+    display: flex;
+}
+.column{
+    width: auto;
+    height: 100px;
+}
+.empty{
+    width: 100px;
+    background-color: transparent;
+}

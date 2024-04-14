@@ -10,6 +10,11 @@ import { FormsModule } from '@angular/forms';
 import { HomeCardComponent } from './components/home-card/home-card.component';
 import { SnakeComponent } from './components/snake/snake.component';
 import { MazeComponent } from './components/maze/maze.component';
+import { MatchesComponent } from './components/matches/matches.component';
+import { NumberComponent } from './components/matches/number/number.component';
+import { SignComponent } from './components/matches/sign/sign.component';
+import { EqualComponent } from './components/matches/equal/equal.component';
+import { EquationComponent } from './components/matches/equation/equation.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,12 @@ import { MazeComponent } from './components/maze/maze.component';
     ColorTubeComponent,
     HomeCardComponent,
     SnakeComponent,
-    MazeComponent
+    MazeComponent,
+    MatchesComponent,
+    NumberComponent,
+    SignComponent,
+    EqualComponent,
+    EquationComponent
   ],
   imports: [
     BrowserModule,

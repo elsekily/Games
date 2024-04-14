@@ -1,0 +1,11 @@
+.container {
+    height: 92vh;
+}
+
+.btn{
+    width: 150px;
+}
+
+.form-control::placeholder {
+    color: #999;
+}
