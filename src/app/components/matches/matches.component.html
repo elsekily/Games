@@ -1,0 +1,26 @@
+    
+<div class="container d-flex align-items-center justify-content-center">
+    <div class="row">
+            <app-equation [equation]="equation"></app-equation>
+            <div class="row justify-content-md-center">
+                <div class="col-4">
+                    <div class="form-group row">
+                        <label class="col-sm-7 col-form-label" for="numberDropdown">Number Of Matches to Move</label> 
+                        <div class="col-sm-5">
+                            <select class="form-control" id="numberDropdown" [(ngModel)]="selectedNumber" placeholder="">
+                                <option *ngFor="let number of numberOfMatchesToMove" [value]="number">{{ number }}</option>
+                            </select>
+                        </div> 
+                    </div>
+                </div>
+                <div class="col-3">
+                    <button  class="btn btn-primary" [disabled]="isSolved || selectedNumber == null" (click)="solve()" >Solve</button>
+                </div>
+                
+            </div>
+            <app-equation [equation]="solution[solutionIndex]" [style.visibility]="isSolved ? 'visible' : 'hidden'"></app-equation>
+            <div class="row justify-content-md-center">
+                <button class="btn btn-primary" (click)="change()"  [style.visibility]="isSolved ? 'visible' : 'hidden'" [disabled]="solution.length == 1">Next Solution</button>
+            </div>
+    </div>
+</div>
