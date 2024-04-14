@@ -5,12 +5,14 @@ import { HomeComponent } from './components/home/home.component';
 import { SnakeComponent } from './components/snake/snake.component';
 import { MazeComponent } from './components/maze/maze.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { MatchesComponent } from './components/matches/matches.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'color-tube', component: ColorTubeMainComponent },
   { path: 'snake', component: SnakeComponent },
-  { path: 'maze', component: MazeComponent }
+  { path: 'maze', component: MazeComponent },
+  { path: 'matches', component: MatchesComponent },
 ];
 
 @NgModule({
