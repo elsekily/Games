@@ -8,7 +8,9 @@ import { Component, Input } from '@angular/core';
 })
 export class NumberComponent {
    @Input()
-  numberArray: number[] = [];
+   numberArray: number[] = [];
+  @Input()
+  isClickable: boolean = true;
 
   getOpacity(i: number): number {
     if (i < 0 || i == this.numberArray.length) return 0;
@@ -17,6 +19,7 @@ export class NumberComponent {
   }
   toggle(i: number) {
     if (i < 0 || i >= this.numberArray.length) return;
+    if (!this.isClickable) return;
 
     this.numberArray[i] = this.numberArray[i] == 0 ? 1 : 0;
   }

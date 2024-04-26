@@ -7,9 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class SignComponent {
   @Input() sign: number[] = [];
+  @Input() isClickable: boolean = true;
 
   toggle() {
-    console.log(this.sign[0]);
+    if (!this.isClickable) return;
     this.sign[0] = this.sign[0] == 1 ? 0 : 1;
   }
 

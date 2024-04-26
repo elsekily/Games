@@ -1,7 +1,7 @@
 <div class="row justify-content-md-center">
-    <div class="col"><app-number [numberArray]="equation.number1"></app-number></div>
-    <div class="col"><app-sign [sign]="equation.sign"></app-sign></div>
-    <div class="col"><app-number [numberArray]="equation.number2"></app-number></div>
+    <div class="col"><app-number [numberArray]="equation.number1" [isClickable]="!isSolved"></app-number></div>
+    <div class="col"><app-sign [sign]="equation.sign" [isClickable]="!isSolved"></app-sign></div>
+    <div class="col"><app-number [numberArray]="equation.number2" [isClickable]="!isSolved"></app-number></div>
     <div class="col"><app-equal></app-equal></div>
-    <div class="col"><app-number [numberArray]="equation.result"></app-number></div>
+    <div class="col"><app-number [numberArray]="equation.result" [isClickable]="!isSolved"></app-number></div>
 </div>
