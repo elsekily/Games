@@ -20,6 +20,13 @@ export class MatchesUtitlies {
         [1, 1, 1, 1, 0, 1, 1]//9
     ];
 
+    public getEquationDifference(equation1: Equation, equation2: Equation): number
+    {
+        return this.numberOfDifferences(equation1.number1, equation2.number1)
+            + this.numberOfDifferences(equation1.number2, equation2.number2)
+            + this.numberOfDifferences(equation1.sign, equation2.sign)
+            + this.numberOfDifferences(equation1.result, equation2.result);
+    }
 
     public isEquationExist(equations: Equation[], equation:Equation) : boolean {
         for (let eq of equations) {
@@ -95,6 +102,17 @@ export class MatchesUtitlies {
             }
         }
         return true;
+    }
+
+    private numberOfDifferences(arr1: number[], arr2: number[]): number {
+        if (arr1.length != arr2.length) return -1;
+        let count = 0;
+        for (let i = 0; i < arr1.length; i++) {
+            if (arr1[i] !== arr2[i]) {
+                count++;
+            }
+        }
+        return count;
     }
 
     public getDefaultEquation(): Equation{
