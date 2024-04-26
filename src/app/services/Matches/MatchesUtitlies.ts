@@ -20,6 +20,22 @@ export class MatchesUtitlies {
         [1, 1, 1, 1, 0, 1, 1]//9
     ];
 
+
+    public isEquationExist(equations: Equation[], equation:Equation) : boolean {
+        for (let eq of equations) {
+            if (this.isEquationsEqual(eq, equation)) 
+                return true;
+    }
+    return false;
+    }
+
+    private isEquationsEqual(equation1: Equation, equation2: Equation): boolean {
+        return this.arraysAreEqual(equation1.number1, equation2.number1)
+            && this.arraysAreEqual(equation1.number2, equation2.number2)
+            && this.arraysAreEqual(equation1.result, equation2.result)
+            && this.arraysAreEqual(equation1.sign,equation2.sign);
+    }
+
     public getNumberArray(n: number): number[] {
         if (n < 0 || n > 9) return [];
 
