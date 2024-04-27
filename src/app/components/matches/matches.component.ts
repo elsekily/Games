@@ -13,6 +13,7 @@ export class MatchesComponent {
   isSolved: boolean = false;
   equation: Equation;
   solution: Equation[] = [];
+  showSolution: boolean = false;
   solutionIndex: number = 0;
   
   selectedNumber!: number;
@@ -29,10 +30,11 @@ export class MatchesComponent {
       alert('Not valid Numbers');
     
     
-    let result =  this.solver.Solve(this.equation,this.selectedNumber);
+    let result =  this.solver.Solve(this.equation,Number(this.selectedNumber));
     
     if (result.length != 0) {
       this.solution = result;
+      this.showSolution = true;
     }
     else {
       alert('No Solution Found!');

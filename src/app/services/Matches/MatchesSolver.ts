@@ -76,7 +76,7 @@ export class MatchesSolver {
           if (this.helper.isValidEquationNumbers(equation)
             && this.helper.isValidEquationResult(equation)
             && !this.helper.isEquationExist(this.solution, equation)
-            && this.helper.getEquationDifference(equation,this.intialEquation) == matchesToMove)
+           && this.helper.getEquationDifference(equation, this.intialEquation)/2 === matchesToMove)
             this.solution.push(equation.clone());
         }
         else {
@@ -94,7 +94,7 @@ export class MatchesSolver {
         if (avilableToPlace == 0) {
           if (this.helper.isValidEquationResult(equation)
             && !this.helper.isEquationExist(this.solution, equation)
-            && this.helper.getEquationDifference(equation,this.intialEquation) == matchesToMove)
+            && this.helper.getEquationDifference(equation, this.intialEquation)/2 === matchesToMove)
             this.solution.push(equation.clone());
         }
         else {
