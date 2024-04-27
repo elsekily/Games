@@ -1,7 +1,7 @@
     
 <div class="container d-flex align-items-center justify-content-center">
     <div class="row">
-            <app-equation [equation]="equation"></app-equation>
+            <app-equation [equation]="equation" [isSolved]="isSolved"></app-equation>
             <div class="row justify-content-md-center">
                 <div class="col-4">
                     <div class="form-group row">
@@ -18,9 +18,12 @@
                 </div>
                 
             </div>
-            <app-equation [equation]="solution[solutionIndex]" [style.visibility]="isSolved ? 'visible' : 'hidden'"></app-equation>
-            <div class="row justify-content-md-center">
-                <button class="btn btn-primary" (click)="change()"  [style.visibility]="isSolved ? 'visible' : 'hidden'" [disabled]="solution.length == 1">Next Solution</button>
+            <div [style.visibility]="showSolution && isSolved? 'visible' : 'hidden'">
+                <app-equation [equation]="solution[solutionIndex]"></app-equation>
+                <div class="row justify-content-md-center">
+                    <button class="btn btn-primary" (click)="change()" [disabled]="solution.length == 1">Next Solution</button>
+                </div>
             </div>
+            
     </div>
 </div>

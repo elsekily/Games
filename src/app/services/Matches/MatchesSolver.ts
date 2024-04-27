@@ -11,6 +11,7 @@ export class MatchesSolver {
   constructor(private helper: MatchesUtitlies) { }
   
   private solution: Equation[] = [];
+  private intialEquation!: Equation;
   
 
 
@@ -19,6 +20,7 @@ export class MatchesSolver {
       return [];
 
     let newEquation = equation.clone();
+    this.intialEquation = equation.clone();
     this.RemoveMatches(newEquation, matchesToMove, matchesToMove);
 
     
@@ -71,7 +73,10 @@ export class MatchesSolver {
         arrays[index][i] = 1;
         
         if (avilableToPlace == 0) {
-          if (this.helper.isValidEquationNumbers(equation) && this.helper.isValidEquationResult(equation))
+          if (this.helper.isValidEquationNumbers(equation)
+            && this.helper.isValidEquationResult(equation)
+            && !this.helper.isEquationExist(this.solution, equation)
+           && this.helper.getEquationDifference(equation, this.intialEquation)/2 === matchesToMove)
             this.solution.push(equation.clone());
         }
         else {
@@ -87,7 +92,9 @@ export class MatchesSolver {
       equation.sign[0] = 1;
 
         if (avilableToPlace == 0) {
-          if (this.helper.isValidEquationResult(equation))
+          if (this.helper.isValidEquationResult(equation)
+            && !this.helper.isEquationExist(this.solution, equation)
+            && this.helper.getEquationDifference(equation, this.intialEquation)/2 === matchesToMove)
             this.solution.push(equation.clone());
         }
         else {

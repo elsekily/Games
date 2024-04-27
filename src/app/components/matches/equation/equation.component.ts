@@ -11,6 +11,8 @@ export class EquationComponent {
 
   @Input()
   equation!: Equation;
+  @Input()
+  isSolved: boolean = false;
 
   constructor(private helper: MatchesUtitlies) {
   }
