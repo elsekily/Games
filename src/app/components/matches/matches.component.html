@@ -19,7 +19,7 @@
                 
             </div>
             <div [style.visibility]="showSolution && isSolved? 'visible' : 'hidden'">
-                <app-equation [equation]="solution[solutionIndex]"></app-equation>
+                <app-equation [equation]="solution[solutionIndex]" [isSolved]="isSolved"></app-equation>
                 <div class="row justify-content-md-center">
                     <button class="btn btn-primary" (click)="change()" [disabled]="solution.length == 1">Next Solution</button>
                 </div>
