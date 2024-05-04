@@ -20,7 +20,11 @@ export class ColorTubeMainComponent{
   canRemoveTubes: boolean = false;
   canInsertColors: boolean = true;
   solvable: boolean = false;
-  
+  solved: boolean = false;
+  solutionIndex : number = 0;
+  solution: number[][] = [];
+
+
   constructor(private solver : ColorTubeSolver ) {
   }
   Add() {
@@ -71,25 +75,33 @@ export class ColorTubeMainComponent{
     this.checkValid();
   }
 
-  async Solve() : Promise<void>{
+  async Solve(){
 
-    let solution =  this.solver.Solve(this.colorTubes);
+    this.solution =  this.solver.Solve(this.colorTubes);
 
     this.solvable = false;
     this.canAddTubes = false;
     this.canRemoveTubes = false;
     this.canInsertColors = false;
 
-    if (solution.length == 0) {
+    if (this.solution.length == 0) {
       alert('No Solution');
       return;
     }
 
-    for (let index = 0; index < solution.length; index++) {
-      console.log(this.colorTubes);
-        await this.move(solution[index][0], solution[index][1]);
-      
-    }
+    this.solved = true;
+
+    
+  }
+
+  async Next(): Promise<void> {
+    if (this.solutionIndex >= this.solution.length)
+      return;
+
+    await this.move(this.solution[this.solutionIndex][0], this.solution[this.solutionIndex][1]);
+    this.solutionIndex++;
+
+    if (this.solutionIndex >= this.solution.length) this.solved = false;
   }
 
 
